@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Tolls</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust this if you have other content */
+    text-align: center; /* Ensures that text inside is centered */
+    padding: 5% 0 40%; /* Add padding to the top and bottom to accommodate the navbar and footer */
+}
+.crypto-title {
+    font-size: 6em;      /* This makes the font size 3 times larger than the default */
+    font-weight: bold;   /* This makes the font bold */
+    font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;  /* This changes the font to a bold typeface. Adjust as necessary */
+    color: azure;
+}
+
+.crypto-tagline {
+    font-size: 2em;    /* This makes the font size 1.5 times larger than the default */
+    font-weight: semi-bold; /* Slight boldness for the tagline */
+    color: azure;
+}
+.svg-logo-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);  /* This will center the logo horizontally */
+    z-index: 9999;  /* Ensuring the logo appears above other content */
+}
+
+.svg-logo-container img {
+    width: 200px;    /* Adjust this value as needed to increase or decrease the logo size */
+    height: auto;    /* This will maintain the aspect ratio of the SVG */
+    display: block;  /* This ensures the image takes up full width specified */
+}
+    </style>
+</head>
+<body style="margin: 0; height: 100vh; background-image: url('images/53d42bf3-8e44-4985-9896-e9148171fe80.webp'); background-size: 100%; padding-top: 5px; background-position: center; background-repeat: no-repeat;">
+
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Crypto Tolls</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how-it-works.html">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#createAccountModal">Create Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#linkVehicleModal">Link Vehicle</a>
+                    </li>
+                </ul>
+                <button id="connectXumm" class="btn btn-outline-light mr-3">
+                    <img src="XRPL Logo Kit 2/svg/XRP Ledger - Purple Lettering.svg" alt="XRP Ledger Logo" style="width: 100px; height: auto;">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Overlay content on top of the full screen picture -->
+    <section id="overlay-content" class="center-content">
+        <h1 class="crypto-title">CRYPTO TOLLS</h1>
+        <p class="crypto-tagline">Pay your tolls easier, quicker and cheaper and earn crypto rewards</p>
+        <a href="how-it-works.html" class="btn btn-primary">Learn More</a>
+    </section>
+<!-- Create Account Modal -->
+<div class="modal fade" id="createAccountModal" tabindex="-1" role="dialog" aria-labelledby="createAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createAccountModalLabel">Create Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+                <!-- Button to go to vehicle.html -->
+                <button type="button" class="btn btn-secondary mt-3" onclick="window.location.href='vehicle.html'">Go to Vehicle Linker</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Link Vehicle Modal -->
+<div class="modal fade" id="linkVehicleModal" tabindex="-1" role="dialog" aria-labelledby="linkVehicleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="linkVehicleModalLabel">Link Vehicle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="vehicleForm">
+                    <div class="vehicle-section">
+                        <h6>Vehicle 1</h6>
+                        <div class="form-group">
+                            <label for="plateNumber1">Plate#:</label>
+                            <input type="text" class="form-control" id="plateNumber1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stateRegistered1">State Registered In:</label>
+                            <input type="text" class="form-control" id="stateRegistered1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="make1">Make (optional):</label>
+                            <input type="text" class="form-control" id="make1">
+                        </div>
+                        <div class="form-group">
+                            <label for="model1">Model (optional):</label>
+                            <input type="text" class="form-control" id="model1">
+                        </div>
+                        <div class="form-group">
+                            <label for="year1">Year (optional):</label>
+                            <input type="text" class="form-control" id="year1">
+                        </div>
+                    </div>
+                    <!-- Dynamically added vehicle sections will appear here -->
+                </form>
+                <button id="addVehicleBtn" class="btn btn-secondary">Add Another Vehicle</button>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="vehicleForm" class="btn btn-primary">Link Vehicles</button>
+            </div>
+        </div>
+    </div>
+</div>  
+<!-- 
+<div class="svg-logo-container">
+    <img src="XRPL Logo Kit 2/svg/XRP Ledger - Purple Lettering.svg" alt="XRP Ledger Logo">
+</div>
+-->
+</body>
+</html>
